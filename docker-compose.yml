@@ -1,0 +1,50 @@
+# osTicket ITSM lab — web app + MariaDB.
+# All secrets are placeholders. Copy .env.example -> .env and set real
+# values there; .env is git-ignored. Never commit real passwords.
+services:
+  osticket:
+    # Community osTicket image (PHP + web server). Pinned tag — verify it
+    # still exists on Docker Hub at pull time (docker compose pull).
+    image: campbellsoftwaresolutions/osticket:1.18
+    container_name: itsm-osticket
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80" # client portal + /scp staff panel, localhost only
+    environment:
+      # Database connection used by the osTicket web installer:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-osticket}
+      MYSQL_USER: ${MYSQL_USER:-osticket}
+      # Placeholder default — override via .env, never commit real secrets.
+      MYSQL_PASSWORD: ${DB_PASSWORD:-changeme}
+    volumes:
+      - osticket-data:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mariadb:10.11 # osTicket supports MySQL 5.7+ / MariaDB 10.x
+    container_name: itsm-mariadb
+    restart: unless-stopped
+    environment:
+      # Placeholder default — override via .env, never commit real secrets.
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-changeme-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-osticket}
+      MYSQL_USER: ${MYSQL_USER:-osticket}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-changeme}
+    volumes:
+      - db-data:/var/lib/mysql
+      # Drop SQL exports here for restore drills (git-ignored):
+      - ./exports:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # No ports published: the database is reachable only from the
+    # osticket container.
+
+volumes:
+  osticket-data:
+  db-data:

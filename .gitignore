@@ -1,0 +1,9 @@
+# Real secrets — never committed. Copy .env.example to start.
+.env
+
+# Database/SQL exports (restore drills, test dumps)
+exports/
+backups/
+
+# osTicket runtime artifacts
+osticket-data/
