@@ -1,6 +1,6 @@
 # Ticket Taxonomy, Workflows & SLA Design
 
-Design template for the lab's osTicket instance — and the same structure
+Design template for this implementation's osTicket instance — and the same structure
 used to plan the Jira Service Management → Zendesk migration. Implement
 these in the staff panel under Admin panel → Manage (Help Topics,
 Departments, SLA Plans) and Teams.
@@ -85,7 +85,7 @@ it's an L1 resolution.
 ## 6. Jira Service Management → Zendesk migration mapping
 
 Planning template: every row in the JSM configuration needs a Zendesk home
-before cutover. osTicket equivalents in parentheses for this lab.
+before cutover. osTicket equivalents in parentheses for this implementation.
 
 | Jira (source) | Zendesk (target) | Notes / decisions |
 |---|---|---|

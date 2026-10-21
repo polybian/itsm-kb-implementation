@@ -1,9 +1,9 @@
-# ITSM + Knowledge Base Lab — osTicket on Docker
+# ITSM + Knowledge Base Implementation — osTicket on Docker
 
 
-> **Note on sources:** This lab recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
+> **Note on sources:** This implementation recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
 
-A self-hosted IT service management lab standing in for the SaaS tools
+A self-hosted IT service management implementation standing in for the SaaS tools
 (Zendesk, Jira Service Management): a working ticket queue with help topics,
 SLA plans, and teams, backed by MariaDB, plus a knowledge base maintained as
 versioned Markdown — the same pattern as the docs you write for real ITSM
@@ -84,7 +84,7 @@ docker compose up -d
   live in `.env` (git-ignored, per `.gitignore`) or your secret manager.
 - osTicket ships with a default admin account during install — change the
   password immediately and delete the installer directory after setup.
-- This lab binds osTicket to `localhost:8080` only; put a reverse proxy with
+- This implementation binds osTicket to `localhost:8080` only; put a reverse proxy with
   TLS in front before exposing it anywhere real.
 - MariaDB has no published port in this compose file — the database is only
   reachable from the osTicket container.

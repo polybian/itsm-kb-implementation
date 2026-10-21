@@ -1,4 +1,4 @@
-# osTicket ITSM lab — web app + MariaDB.
+# osTicket ITSM implementation — web app + MariaDB.
 # All secrets are placeholders. Copy .env.example -> .env and set real
 # values there; .env is git-ignored. Never commit real passwords.
 services:

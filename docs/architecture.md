@@ -33,10 +33,10 @@ is identical, and that's the part interviews test.
 - **Zammad** is the more modern app, but its data model (groups, overviews,
   triggers) maps cleanly onto *Zendesk only*. osTicket's
   departments/help-topics model sits between Zendesk and Jira, which matches
-  this lab's dual purpose: Zendesk-style support queues *and* the Jira→Zendesk
+  this implementation's dual purpose: Zendesk-style support queues *and* the Jira→Zendesk
   migration mapping doc.
 - **GLPI** leans ITSM-asset-heavy (CMDB, inventory) — valuable, but a
-  different lab. This lab is about the ticket + KB workflow.
+  different implementation. This implementation is about the ticket + KB workflow.
 - osTicket is a single PHP/MySQL app with well-worn community Docker images —
   it starts in one `docker compose up` and the whole state lives in two
   volumes.
@@ -76,7 +76,7 @@ not authored inside the app:
 - **Installer hygiene:** complete the web installer, then delete the
   `setup/` directory; change the default admin password immediately and
   create named admin/agent accounts instead of sharing one.
-- **Network:** the lab binds `127.0.0.1:8080` only. For anything beyond a
+- **Network:** the implementation binds `127.0.0.1:8080` only. For anything beyond a
   laptop, terminate TLS at a reverse proxy and restrict `/scp` to the
   office/VPN IP ranges.
 - **Secrets:** database and admin credentials live in `.env` (git-ignored)

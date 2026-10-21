@@ -61,8 +61,8 @@
    tunnel) and the user needs general internet through the VPN, they have
    the wrong profile — send the correct one.
 6. **Check DNS:** with the tunnel up, internal names (e.g.
-   `fileserver.lab.local`) must resolve via the tunnel DNS (`10.8.0.1`).
-   On Windows, run `nslookup fileserver.lab.local 10.8.0.1`; on macOS,
+   `fileserver.corp.local`) must resolve via the tunnel DNS (`10.8.0.1`).
+   On Windows, run `nslookup fileserver.corp.local 10.8.0.1`; on macOS,
    check that the tunnel's DNS server is listed first in
    `scutil --dns`. If public sites work but internal names don't, it's a
    DNS ordering issue — toggle the tunnel off/on once to re-apply DNS.
@@ -81,7 +81,7 @@
 
 - [ ] WireGuard app shows a handshake within the last 2 minutes
 - [ ] `ping 10.8.0.1` succeeds (gateway reachable through the tunnel)
-- [ ] Internal hostname resolves (e.g. `nslookup fileserver.lab.local`)
+- [ ] Internal hostname resolves (e.g. `nslookup fileserver.corp.local`)
 - [ ] User can open one internal resource (intranet page or file share)
 
 ## Escalation
