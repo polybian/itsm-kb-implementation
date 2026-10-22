@@ -26,7 +26,7 @@ transfer directly:
 
 The mechanics differ (less automation than Zendesk triggers), but the
 **design discipline** — queues, categories, priorities, escalation, SLA math —
-is identical, and that's the part interviews test.
+is identical — the design discipline is what matters.
 
 ## Why osTicket over Zammad / GLPI
 

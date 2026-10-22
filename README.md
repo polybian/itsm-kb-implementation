@@ -92,7 +92,7 @@ docker compose up -d
 
 - `docker-compose.yml`: parsed with `python3 -c "yaml.safe_load(...)"` — **no
   errors** (compose schema check, not a full `docker compose config`, since
-  Docker is not available in this sandbox).
+  Docker is not available locally).
 - `.env.example` / `.gitignore`: manually reviewed — no real secrets present.
 - KB articles and design docs: careful review pass (structure, step order,
   terminology) — no host available to run them end to end.
