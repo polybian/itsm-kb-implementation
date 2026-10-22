@@ -44,7 +44,6 @@ Docker Compose deployment of a real PHP/MySQL stack.
 | `.env.example` | Template for all secrets — copy to `.env`, never commit |
 | `docs/architecture.md` | Design decisions: why osTicket, data model, KB-as-docs |
 | `docs/ticket-taxonomy-and-workflows.md` | Category scheme, priority matrix, statuses, SLAs, L1/L2/L3 rules, Jira→Zendesk migration mapping |
-| `docs/interview-answers.md` | "How did you do this?" — talking points for interviews |
 | `kb/KB-001-vpn-connection-troubleshooting.md` | SOP article: WireGuard client won't connect |
 | `kb/KB-002-mfa-reset-and-reregistration.md` | SOP article: lost phone / MFA reset + re-register |
 | `kb/KB-003-new-hire-account-checklist.md` | SOP article: new-hire account provisioning checklist |
