@@ -1,13 +1,12 @@
 # ITSM + Knowledge Base Implementation — osTicket on Docker
 
+I led the move from Jira to Zendesk at Kime Capital. We did a hard cutover and lost
+the links to old tickets; next time I'd run both systems side by side for a while
+first. This repo rebuilds the same workflows and knowledge base structure on
+open-source osTicket, with all company data removed.
 
-> **Note on sources:** This implementation recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
-
-A self-hosted IT service management implementation standing in for the SaaS tools
-(Zendesk, Jira Service Management): a working ticket queue with help topics,
-SLA plans, and teams, backed by MariaDB, plus a knowledge base maintained as
-versioned Markdown — the same pattern as the docs you write for real ITSM
-platforms.
+It's a working ticket queue with help topics, SLA plans, and teams, backed by
+MariaDB, plus a knowledge base kept as versioned Markdown.
 
 **What this demonstrates:** ITSM platform administration (queues, ticket
 forms, workflows, SLA design), support-ticket taxonomy design, L1/L2/L3
