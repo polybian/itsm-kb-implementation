@@ -1,4 +1,4 @@
-# KB-002 — MFA reset and re-registration (lost or replaced phone)
+# KB-002: MFA reset and re-registration (lost or replaced phone)
 
 | Field | Value |
 |---|---|
@@ -20,7 +20,7 @@
   authenticator app shows no account for the company
 - User is locked out of M365, VPN, or other SSO apps that require MFA
 
-## ⚠️ Security verification FIRST — before touching anything
+## ⚠️ Security verification FIRST: before touching anything
 
 An MFA reset hands account access to whoever is asking. **Verify identity
 before resetting, no exceptions.** Do not reset MFA based on an email
@@ -44,11 +44,11 @@ request alone.
    ticket.
 2. In the Entra admin center, open the user → **Authentication methods** →
    select **Require re-register MFA**. This clears their existing methods
-   and forces setup at next sign-in. (Do not delete methods one by one —
+   and forces setup at next sign-in. (Do not delete methods one by one:
    re-register is the clean reset.)
 3. If the user needs access *before* they can re-register (e.g. they're at
    a new device with no working MFA at all), issue a **Temporary Access
-   Pass** (one-time, short lifetime — 1 hour) and give it to the user
+   Pass** (one-time, short lifetime: 1 hour) and give it to the user
    through the verified channel. Never email a TAP to an unverified
    address.
 4. Direct the user to **https://aka.ms/mfasetup** and walk them through:

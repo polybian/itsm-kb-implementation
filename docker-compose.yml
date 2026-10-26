@@ -1,9 +1,9 @@
-# osTicket ITSM implementation — web app + MariaDB.
+# osTicket ITSM implementation - web app + MariaDB.
 # All secrets are placeholders. Copy .env.example -> .env and set real
 # values there; .env is git-ignored. Never commit real passwords.
 services:
   osticket:
-    # Community osTicket image (PHP + web server). Pinned tag — verify it
+    # Community osTicket image (PHP + web server). Pinned tag - verify it
     # still exists on Docker Hub at pull time (docker compose pull).
     image: campbellsoftwaresolutions/osticket:1.18
     container_name: itsm-osticket
@@ -15,7 +15,7 @@ services:
       MYSQL_HOST: db
       MYSQL_DATABASE: ${MYSQL_DATABASE:-osticket}
       MYSQL_USER: ${MYSQL_USER:-osticket}
-      # Placeholder default — override via .env, never commit real secrets.
+      # Placeholder default - override via .env, never commit real secrets.
       MYSQL_PASSWORD: ${DB_PASSWORD:-changeme}
     volumes:
       - osticket-data:/var/www/html
@@ -28,7 +28,7 @@ services:
     container_name: itsm-mariadb
     restart: unless-stopped
     environment:
-      # Placeholder default — override via .env, never commit real secrets.
+      # Placeholder default - override via .env, never commit real secrets.
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-changeme-root}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-osticket}
       MYSQL_USER: ${MYSQL_USER:-osticket}

@@ -1,4 +1,4 @@
-# Real secrets — never committed. Copy .env.example to start.
+# Real secrets - never committed. Copy .env.example to start.
 .env
 
 # Database/SQL exports (restore drills, test dumps)

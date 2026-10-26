@@ -4,7 +4,7 @@
 
 - **osTicket** (community Docker image, PHP + web server) as the ITSM app:
   ticket intake, queues, workflows, SLA plans, and staff/agent panels.
-- **MariaDB 10.11** as the backing store. MariaDB has no published port —
+- **MariaDB 10.11** as the backing store. MariaDB has no published port:
   only the osTicket container can reach it.
 - **Named volumes** (`osticket-data`, `db-data`) for persistence; `./exports`
   (git-ignored) as the drop-in point for SQL exports and restore drills.
@@ -25,8 +25,8 @@ transfer directly:
 | Guide / Confluence KB | Built-in Knowledge Base (internal + public articles) |
 
 The mechanics differ (less automation than Zendesk triggers), but the
-**design discipline** — queues, categories, priorities, escalation, SLA math —
-is identical — the design discipline is what matters.
+**design discipline** (queues, categories, priorities, escalation, SLA math)
+is identical. The design discipline is what matters.
 
 ## Why osTicket over Zammad / GLPI
 
@@ -35,9 +35,9 @@ is identical — the design discipline is what matters.
   departments/help-topics model sits between Zendesk and Jira, which matches
   this implementation's dual purpose: Zendesk-style support queues *and* the Jira→Zendesk
   migration mapping doc.
-- **GLPI** leans ITSM-asset-heavy (CMDB, inventory) — valuable, but a
+- **GLPI** leans ITSM-asset-heavy (CMDB, inventory): valuable, but a
   different implementation. This implementation is about the ticket + KB workflow.
-- osTicket is a single PHP/MySQL app with well-worn community Docker images —
+- osTicket is a single PHP/MySQL app with well-worn community Docker images:
   it starts in one `docker compose up` and the whole state lives in two
   volumes.
 
@@ -60,14 +60,14 @@ is identical — the design discipline is what matters.
 The knowledge base lives in `kb/` as Markdown and is **versioned in git**,
 not authored inside the app:
 
-- Articles are diff-able, reviewable in pull requests, and portable — the
+- Articles are diff-able, reviewable in pull requests, and portable: the
   same files feed a SaaS Guide, Confluence, or a static site.
 - The osTicket KB is the *published* copy; `kb/` is the *source of truth*.
   Updates flow one way: edit Markdown → paste into the Admin panel (or a
   future import script).
 - Each article has a fixed SOP structure (Title, Applies to, Symptoms,
-  Cause, Resolution steps, Verification, Escalation) so agents — including
-  new ones — can execute it without tribal knowledge.
+  Cause, Resolution steps, Verification, Escalation) so agents (including
+  new ones) can execute it without tribal knowledge.
 - Stale-article prevention is a process decision, not a tool feature: every
   article names an owner and a review date; see the taxonomy doc.
 
@@ -80,7 +80,7 @@ not authored inside the app:
   laptop, terminate TLS at a reverse proxy and restrict `/scp` to the
   office/VPN IP ranges.
 - **Secrets:** database and admin credentials live in `.env` (git-ignored)
-  or a secret manager — never in the compose file, docs, or chat logs.
+  or a secret manager, never in the compose file, docs, or chat logs.
 - **Backups:** dump MariaDB on a schedule (`mysqldump` into `./backups`,
   off-box copy). The `db-data` volume is not a backup strategy by itself.
 - **Updates:** pin the osTicket image tag; test upgrades on a copy of the

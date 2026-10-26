@@ -1,4 +1,4 @@
-# KB-003 — New-hire account provisioning checklist
+# KB-003: New-hire account provisioning checklist
 
 | Field | Value |
 |---|---|
@@ -19,19 +19,19 @@
 - [ ] Work location (office / remote) and required hardware per the
   hardware matrix
 - [ ] Any special access noted by the manager (shared mailboxes, apps,
-  elevated rights) — if it's not in the ticket, provision the standard
+  elevated rights): if it's not in the ticket, provision the standard
   set and let the manager request extras
 
 **Naming convention:** `firstname.lastname` for UPN and primary email
 (e.g. `ana.gomez`). On collision, append the middle initial, then a
-number — never reuse a departed employee's address.
+number: never reuse a departed employee's address.
 
 ## Provisioning steps (in order)
 
 ### 1. Identity and licensing
-- [ ] Create the Entra ID user (cloud-only, or synced if hybrid — follow
+- [ ] Create the Entra ID user (cloud-only, or synced if hybrid: follow
   the site's standard)
-- [ ] Assign the M365 license per role (standard vs. frontline — check the
+- [ ] Assign the M365 license per role (standard vs. frontline: check the
   license matrix, don't guess)
 - [ ] Set usage location (required before license assignment)
 - [ ] Force password change at first sign-in; generate a Temporary Access
@@ -59,13 +59,13 @@ number — never reuse a departed employee's address.
 - [ ] VPN: create the WireGuard peer / distribute the tunnel profile
   (see KB-001 for the client setup the user will follow)
 - [ ] ITSM: create the agent or end-user account as appropriate
-- [ ] MFA: user registers at https://aka.ms/mfasetup on day one —
+- [ ] MFA: user registers at https://aka.ms/mfasetup on day one,
   **do not pre-register MFA for them** (see KB-002 for the reset flow
   if they get stuck)
 
 ### 5. Handoff
 - [ ] Send the manager the credentials package through the approved
-  channel (TAP + login instructions — never plain-text passwords over
+  channel (TAP + login instructions: never plain-text passwords over
   email)
 - [ ] Send the new hire the day-one checklist: Wi-Fi/VPN setup, MFA
   enrollment, where to file tickets, who to contact for help

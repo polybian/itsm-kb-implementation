@@ -1,6 +1,6 @@
 # Ticket Taxonomy, Workflows & SLA Design
 
-Design template for this implementation's osTicket instance — and the same structure
+Design template for this implementation's osTicket instance, and the same structure
 used to plan the Jira Service Management → Zendesk migration. Implement
 these in the staff panel under Admin panel → Manage (Help Topics,
 Departments, SLA Plans) and Teams.
@@ -19,12 +19,12 @@ default priority, and an SLA plan.
 | M365 & Collaboration | Access & Accounts | P3 | Mailbox issues, Teams/SharePoint access, OneDrive sync, distribution lists |
 | Security Incident | Security | P2 | Phishing report, suspected compromise, lost/stolen device |
 | Procurement | Procurement | P4 | New hardware request, software purchase, renewals |
-| General / Other | Service Desk | P4 | Anything not covered — reviewed monthly; a fat "Other" bucket means the taxonomy is wrong |
+| General / Other | Service Desk | P4 | Anything not covered: reviewed monthly; a fat "Other" bucket means the taxonomy is wrong |
 
 **Design rule:** 6–10 topics. If agents can't pick the right one in under
 5 seconds, you have too many.
 
-## 2. Priority matrix — impact × urgency
+## 2. Priority matrix: impact × urgency
 
 |  | High urgency | Normal urgency | Low urgency |
 |---|---|---|---|
@@ -53,7 +53,7 @@ New → Assigned → In Progress → Pending User → Resolved → Closed
 - **Closed:** confirmed or auto-closed. Reopening creates a linked follow-up,
   not a zombie ticket.
 
-## 4. SLA targets (design template — tune to the business)
+## 4. SLA targets (design template: tune to the business)
 
 These are *design starting points*, not measured results. Set them in osTicket
 as SLA plans per priority.
@@ -65,10 +65,10 @@ as SLA plans per priority.
 | P3 Normal | 4 h | 2 business days | L2 consult if stuck at 1 day |
 | P4 Low | 8 h | 5 business days | Review at 3 days |
 
-Business-hours vs. 24/7 coverage is declared in the SLA plan itself — P1
+Business-hours vs. 24/7 coverage is declared in the SLA plan itself: P1
 outside hours follows the on-call rotation, not the queue.
 
-## 5. Escalation rules — L1 → L2 → L3
+## 5. Escalation rules: L1 → L2 → L3
 
 | Level | Who | Owns | Timebox before escalating |
 |---|---|---|---|
@@ -78,7 +78,7 @@ outside hours follows the on-call rotation, not the queue.
 
 **Warm-handoff rule:** an escalation must include a summary, steps already
 tried, relevant logs/screenshots, and what the requester was last told.
-Escalations without that context get bounced back — politely, once.
+Escalations without that context get bounced back. Politely, once.
 **KB rule:** whoever solves it writes or updates the article, so next time
 it's an L1 resolution.
 
@@ -94,7 +94,7 @@ before cutover. osTicket equivalents in parentheses for this implementation.
 | Priorities: Highest, High, Medium, Low | P1–P4 via impact × urgency matrix above | Jira's 5 levels remapped; document the old→new mapping for reporting continuity |
 | Queues (JSM project queues) | Departments (`osTicket: departments`) | 1:1 where queues were healthy; merged where queues had < 5 tickets/month |
 | Custom fields (e.g. Asset tag, Office location) | Ticket fields / tags (`osTicket: custom form fields per help topic`) | Fields with no equivalent become tags + a migration note on the ticket |
-| Automation rules | Triggers + SLA plans (`osTicket: filters, auto-assign, SLA plans`) | Rebuild, don't port: Zendesk/osTicket automation is simpler — keep only rules that fired in the last 90 days |
+| Automation rules | Triggers + SLA plans (`osTicket: filters, auto-assign, SLA plans`) | Rebuild, don't port: Zendesk/osTicket automation is simpler, keep only rules that fired in the last 90 days |
 | Confluence KB | Guide articles (`osTicket: Knowledge Base`) | Rewritten into the SOP template (owner + review date), not copy-pasted |
 | Customer portal | Help center (`osTicket: client portal`) | Request forms rebuilt per help topic; test the full submit→triage path in pilot |
 | Users / agents | End users / Agents + Teams (`osTicket: users, staff, teams`) | Export, de-duplicate, map Jira groups → Zendesk groups/teams |

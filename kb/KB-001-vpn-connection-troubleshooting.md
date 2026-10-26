@@ -1,4 +1,4 @@
-# KB-001 — VPN client won't connect (WireGuard)
+# KB-001: VPN client won't connect (WireGuard)
 
 | Field | Value |
 |---|---|
@@ -42,12 +42,12 @@
    user complete the captive-portal login in a browser first.
 2. **Check the endpoint:** in the tunnel config, the `Endpoint` must be the
    current gateway address and port `51820/udp`. If the gateway address
-   changed recently, push the updated profile — don't have users hand-edit
+   changed recently, push the updated profile: don't have users hand-edit
    it.
 3. **Check the keys:** the user's **public** key on file must match the
    peer entry on the server (compare in the admin panel; never ask for or
    handle the user's *private* key). If the user reinstalled the app or got
-   a new device, their keypair changed — generate a new peer entry and send
+   a new device, their keypair changed: generate a new peer entry and send
    a fresh profile. Mismatched keys are the #1 cause of "suddenly stopped
    working after reinstall."
 4. **Check local firewall/security software:** third-party firewalls and
@@ -59,23 +59,23 @@
 5. **Check routing:** the profile should be full-tunnel
    (`AllowedIPs = 0.0.0.0/0`). If it shows only `10.8.0.0/24` (split
    tunnel) and the user needs general internet through the VPN, they have
-   the wrong profile — send the correct one.
+   the wrong profile: send the correct one.
 6. **Check DNS:** with the tunnel up, internal names (e.g.
    `fileserver.corp.local`) must resolve via the tunnel DNS (`10.8.0.1`).
    On Windows, run `nslookup fileserver.corp.local 10.8.0.1`; on macOS,
    check that the tunnel's DNS server is listed first in
    `scutil --dns`. If public sites work but internal names don't, it's a
-   DNS ordering issue — toggle the tunnel off/on once to re-apply DNS.
+   DNS ordering issue: toggle the tunnel off/on once to re-apply DNS.
 
 ### 3. If it worked before and broke today
 
 7. **Ask what changed:** OS update, new security software, new router, or
    travel to a new network. OS updates frequently reset firewall rules and
-   DNS settings — re-verify steps 4 and 6.
+   DNS settings: re-verify steps 4 and 6.
 8. **Server side (L2):** check the gateway is reachable and the user's peer
    entry still exists (`wg show` on the server should list their public
    key with a recent handshake). If the peer is missing, it was likely
-   pruned — re-add it.
+   pruned: re-add it.
 
 ## Verification
 
@@ -86,9 +86,9 @@
 
 ## Escalation
 
-Escalate to **L2 — Network** if: no handshake after key re-issue, suspected
+Escalate to **L2 Network** if: no handshake after key re-issue, suspected
 gateway outage (multiple users affected → treat as P1/P2 per the priority
 matrix), or ISP-level UDP blocking. Include in the escalation: handshake
 status, client app version, OS version, network type (office/home/hotel),
 and whether other users on the same network are affected. **Never include
-private keys** — only public keys and timestamps.
+private keys**: only public keys and timestamps.
